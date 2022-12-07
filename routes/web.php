@@ -34,7 +34,7 @@ Route::get('/authors', function (User $author) {
     return view('about', [
         "title" => "Author",
         // "users" => User::all(),
-        'posts' => Post::all()
+        'posts' => Post::all()->unique('user_id')
     ]);
 });
 Route::get('/authors/{author:username}', function (User $author) {

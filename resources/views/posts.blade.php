@@ -8,6 +8,9 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <form action="/posts">
+                @if (request('category'))
+                    <input type="hidden" name="category" value="{{ request('category') }}">
+                @endif
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Search.." name="search"
                         value="{{ request('search') }}"> <button class="btn btn-primary" type="submit">Search</button>
@@ -30,7 +33,7 @@
                     {{ $posts[0]->author->name }}
                 </a>
                 <br>
-                <a href="/categories/{{ $posts[0]->category->slug }}" class="text-decoration-none">
+                <a href="/posts?category={{ $posts[0]->category->slug }}" class="text-decoration-none">
                     {{ $posts[0]->category->name }}
                 </a>
                 <br>
@@ -64,7 +67,7 @@
                             {{ $post->author->name }}
                         </a>
                         <br>
-                        <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none">
+                        <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none">
                             {{ $post->category->name }}
                         </a>
                     </p>
@@ -85,6 +88,9 @@
             </div>
         </div>
     @endforeach
+    <div class="my-3">
+        {{ $posts->links() }}
+    </div>
 @endsection
 
 {{-- No Post --}}

@@ -17,9 +17,9 @@
                         Category
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/categories/programming">Programming</a></li>
-                        <li><a class="dropdown-item" href="/categories/web-programming">Web Programming</a></li>
-                        <li><a class="dropdown-item" href="/categories/personal">Personal</a></li>
+                        <li><a class="dropdown-item" href="/posts?category=programming">Programming</a></li>
+                        <li><a class="dropdown-item" href="/posts?category=web-programming">Web Programming</a></li>
+                        <li><a class="dropdown-item" href="/posts?category=personal">Personal</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

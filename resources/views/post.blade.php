@@ -10,7 +10,7 @@
                 {{ $post->author->name }}
             </a> <br><br>
             Category:
-            <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none">
+            <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none">
                 {{ $post->category->name }}
             </a> <br><br>
             Synopsis: <br> {!! $post->body !!}
