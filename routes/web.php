@@ -43,3 +43,5 @@ Route::get('/authors/{author:username}', function (User $author) {
         'posts' => $author->posts->load('category', 'author')
     ]);
 });
+
+// 13 Selesai
