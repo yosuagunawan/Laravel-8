@@ -4,7 +4,9 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button> --}}
-        <div class="collapse navbar-collapse text-center d-flex justify-content-center" id="navbarNav">
+        <div class="collapse navbar-collapse text-center
+        {{-- d-flex justify-content-center" --}}
+        id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link active" href="/posts">
@@ -26,6 +28,11 @@
                     <a class="nav-link active" href="/authors">
                         Publisher
                     </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="/login" class="nav-link"><i class="bi bi-box-arrow-in-right"></i> Login</a>
                 </li>
             </ul>
         </div>

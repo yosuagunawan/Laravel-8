@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LoginController;
 use App\Models\Category;
 use App\Models\User;
 use App\Models\Post;
@@ -44,4 +45,4 @@ Route::get('/authors/{author:username}', function (User $author) {
     ]);
 });
 
-// 13 Selesai
+Route::get('/login', [LoginController::class, 'index']);
