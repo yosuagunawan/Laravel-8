@@ -9,18 +9,10 @@ class PostController extends Controller
 {
     public function index()
     {
-
-        $posts = Post::latest();
-
-        if (request('search')) {
-            $posts->where('title', 'like', '%' . request('search') . '%')
-                ->orWhere('body', 'like', '%' . request('search') . '%');
-        }
-
         return view('posts', [
             "title" => "All Posts",
             // "posts" => Post::all()
-            "posts" => $posts->get()
+            "posts" => Post::latest()->filter()->get()
         ]);
     }
 
