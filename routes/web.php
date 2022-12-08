@@ -49,3 +49,5 @@ Route::get('/authors/{author:username}', function (User $author) {
 Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/register', [RegisterController::class, 'index']);
+
+// 14 Selesai
