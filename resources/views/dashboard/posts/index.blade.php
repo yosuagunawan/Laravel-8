@@ -22,13 +22,13 @@
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->category->name }}</td>
                         <td>
-                            <a href="/dashboard/posts/{{ $post->id }}" class="badge bg-primary">
+                            <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-primary">
                                 <span data-feather="eye">
                             </a>
-                            <a href="/dashboard/posts/{{ $post->id }}" class="badge bg-warning">
+                            <a href="" class="badge bg-warning">
                                 <span data-feather="edit">
                             </a>
-                            <a href="/dashboard/posts/{{ $post->id }}" class="badge bg-danger">
+                            <a href="" class="badge bg-danger">
                                 <span data-feather="x-circle">
                             </a>
                         </td>
