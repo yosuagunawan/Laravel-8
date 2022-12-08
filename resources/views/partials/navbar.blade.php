@@ -9,13 +9,13 @@
         id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/posts">
+                    <a class="nav-link  {{ Request::is('home') ? 'active' : '' }}" href="/home">
                         Home
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdwon-toggle active" href="/posts" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <a class="nav-link dropdwon-toggle  {{ Request::is('posts') ? 'active' : '' }}" href="/posts"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Category
                     </a>
                     <ul class="dropdown-menu">
@@ -25,7 +25,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/authors">
+                    <a class="nav-link  {{ Request::is('authors') ? 'active' : '' }}" href="/authors">
                         Publisher
                     </a>
                 </li>

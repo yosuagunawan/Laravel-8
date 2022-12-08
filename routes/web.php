@@ -22,11 +22,14 @@ use App\Http\Controllers\AuthorController;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        "title" => "Home"
-    ]);
-});
+// Route::get('/', function () {
+//     return view('home', [
+//         "title" => "Home"
+//     ]);
+// });
+
+
+Route::get('/home', [PostController::class, 'index']);
 
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
