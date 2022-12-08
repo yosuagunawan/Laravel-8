@@ -29,7 +29,7 @@
         }
 
         li.nav-item>a {
-            font-size: 2em;
+            font-size: 1.5em;
         }
 
         @media only screen and (max-width: 992px) {

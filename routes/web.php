@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AuthorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,25 +34,13 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
-Route::get('/authors', function (User $author) {
-    return view('about', [
-        "title" => "Author",
-        // "users" => User::all(),
-        'posts' => Post::all()->unique('user_id')
-    ]);
-});
-Route::get('/authors/{author:username}', function (User $author) {
-    return view('posts', [
-        'title' => "Post by Author : $author->name",
-        'posts' => $author->posts->load('category', 'author')
-    ]);
-});
+Route::get('/authors', [AuthorController::class, 'index']);
+Route::get('/authors/{author:username}', [AuthorController::class, 'show']);
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
-// 14 Selesai
