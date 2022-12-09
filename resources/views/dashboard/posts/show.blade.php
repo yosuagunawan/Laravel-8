@@ -15,6 +15,5 @@
 
             Synopsis: <br> {!! $post->body !!}
         </p>
-        <a href="/posts" class="text-decoration-none">Back to Posts</a>
     </div>
 @endsection
