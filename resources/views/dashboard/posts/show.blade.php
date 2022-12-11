@@ -5,7 +5,12 @@
         <div class="my-3">
             <a href="/dashboard/posts" class="btn btn-success"><span data-feather="arrow-left"></span>Back to all my posts</a>
             <a href="" class="btn btn-warning mx-1"><span data-feather="edit"></span>Edit</a>
-            <a href="" class="btn btn-danger"><span data-feather="x-circle"></span>Delete</a>
+            <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
+                @method('delete')
+                @csrf
+                <button class="btn bg-danger" onclick="return confirm('Are you sure?')">Delete<span data-feather="x-circle">
+                </button>
+            </form>
         </div>
         <img src="/asset/BookMockup.png" class="img-description img-fluid img-thumbnail d-flex flex-grow-1" alt="...">
         <p class="mt-3">
