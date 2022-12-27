@@ -2,7 +2,12 @@
 
 @section('section')
     <div class="my-5 container-xl">
-        <img src="/asset/BookMockup.png" class="img-description img-fluid img-thumbnail d-flex flex-grow-1" alt="...">
+        @if ($post->image)
+            <img src="{{ asset('storage/' . $post->image) }}"
+                class="img-description img-fluid img-thumbnail d-flex flex-grow-1" alt="...">
+        @else
+            <img src="/asset/BookMockup.png" class="img-description img-fluid img-thumbnail d-flex flex-grow-1" alt="...">
+        @endif
         <p class="mt-3">
             Title: {{ $post->title }} <br><br>
             Author:

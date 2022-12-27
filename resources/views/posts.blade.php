@@ -22,8 +22,13 @@
 
 
     {{-- @if ($posts->count()) --}}
-    <div class="card mb-3">
-        <img src="/asset/Karina.jpg" class="card-img-top img" alt="...">
+    <div class="card mb-3 pt-4">
+        @if ($posts[0]->image)
+            <img src="{{ asset('storage/' . $posts[0]->image) }}"
+                class="img-description img-fluid img-thumbnail d-flex flex-grow-1" alt="...">
+        @else
+            <img src="/asset/Karina.jpg" class="card-img-top img" alt="...">
+        @endif
         <div class="card-body text-center">
             <h2 class="card-title"><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">
                     {{ $posts[0]->title }}
@@ -54,7 +59,11 @@
     @foreach ($posts->skip(1) as $post)
         <div class="col">
             <div class="card p-3 my-2">
-                <img src="/asset/BookMockup.png" class="img-thumbnail img-fluid" alt="...">
+                @if ($post->image)
+                    <img src="{{ asset('storage/' . $post->image) }}" class="img-thumbnail img-fluid" alt="...">
+                @else
+                    <img src="/asset/BookMockup.png" class="img-thumbnail img-fluid" alt="...">
+                @endif
                 <article class="mainPost">
                     <h2>
                         <a href="/posts/{{ $post->slug }}" class="text-decoration-none">
