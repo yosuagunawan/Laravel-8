@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
@@ -56,3 +57,5 @@ Route::resource(
     '/dashboard/posts',
     DashboardPostController::class
 )->middleware('auth');
+
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('auth');
