@@ -58,4 +58,4 @@ Route::resource(
     DashboardPostController::class
 )->middleware('auth');
 
-Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('auth');
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
