@@ -6,9 +6,13 @@
     </div>
 
     <div class="col-lg-8">
-        <form method="post" action="/dashboard/posts/{{ $post->slug }}" class="mb-5">
+        <form method="post" action="/dashboard/posts/{{ $post->slug }}" class="mb-5" enctype="multipart/form-data">
             @method('put')
             @csrf
+
+            <img src="{{ asset('storage/' . $post->image) }}" alt=""
+                class="img-description img-fluid img-thumbnail d-flex flex-grow-1 my-4">
+
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text"
@@ -49,6 +53,24 @@
                     @endforeach
                 </select>
             </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Post Image</label>
+                <input type="hidden" name="oldImage" value="{{ $post->image }}">
+                <input
+                    class="form-control
+                    @error('image')
+                        is-invalid
+                    @enderror
+                    "type="file"
+                    id="image" name="image">
+                @error('image')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
             <div class="mb-3">
                 <label for="body" class="form-label">Body</label>
                 @error('body')
